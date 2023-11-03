@@ -4,7 +4,7 @@ cameras:
       parameters:
         cols: 1
         rows: 4
-        data: [0.018683, 0.015571, -0.001686, 0.003023]
+        data: [0, 0, 0, 0]
       type: radial-tangential
     image_height: 480
     image_width: 640
