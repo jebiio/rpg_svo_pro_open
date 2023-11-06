@@ -58,6 +58,7 @@ size_t PoseOptimizer::run(const FrameBundle::Ptr& frame_bundle, double reproj_th
   for(const FramePtr& frame : frame_bundle->frames_)
   {
     frame->T_f_w_ = frame->T_cam_imu()*T_imu_world;
+    // LOG(INFO) << "frame->T_f_w_ = " << frame->T_f_w_.log().transpose();
   }
 
   // Remove Measurements with too large reprojection error
