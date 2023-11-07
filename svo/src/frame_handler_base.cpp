@@ -605,6 +605,8 @@ void FrameHandlerBase::setInitialPose(const FrameBundlePtr& frame_bundle) const
     for (size_t i = 0; i < frame_bundle->size(); ++i)
     {
       frame_bundle->at(i)->T_f_w_ = cams_->get_T_C_B(i) * T_world_imuinit.inverse();
+      // rorate T_f_w_ 180 degree around y axis.
+      frame_bundle->at(i)->T_f_w_ = Transformation(Quaternion(0, 1, 0, 0), Vector3d::Zero()) * frame_bundle->at(i)->T_f_w_;
     }
   }
 }
